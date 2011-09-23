@@ -1,0 +1,12 @@
+production:
+  adapter: sqlite3
+  database: db/prod.sqlite3
+  timeout: 3000
+ 
+development:
+  adapter: sqlite3
+  database: db/develop.sqlite3
+
+test:
+  adapter: sqlite3
+  database: db/test.sqlite3

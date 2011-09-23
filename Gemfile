@@ -15,9 +15,6 @@ gem 'uglifier'
 gem 'haml'
 gem 'redcarpet'
 
-# Monitoring 
-gem 'newrelic_rpm', '~>3.1.1'
-
 # Date Handling
 gem 'ice_cube', "~> 0.6.12"
 gem 'ri_cal', "~> 0.8.8"
@@ -59,4 +56,9 @@ group :test do
   # Pretty printed test output
   # gem 'turn', :require => false
   gem 'factory_girl_rails', "~> 1.1.beta1"
+end
+
+group :production do
+  # Monitoring 
+  gem 'newrelic_rpm', '~>3.1.1'
 end
