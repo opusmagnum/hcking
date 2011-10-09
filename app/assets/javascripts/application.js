@@ -6,4 +6,5 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require zero-clipboard
 //= require_tree .

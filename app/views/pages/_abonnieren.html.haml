@@ -1,9 +1,31 @@
+- content_for :javascript_assets do
+  subscribe
+
 - title "Abonnieren"
 
-%p
-  Die iCal-URL zum abonnieren des Kalender ist:
+%div.abbonieren
+  %p
+    Die iCal-URL zum abonnieren des Kalender ist:
 
-%input{:size=> 40, :value => url_for(:action=>"index", :controller=>"ical", :format => "ical", :only_path => false)}
+  %input{:size=> 40, :id => "icallink", :value => url_for(:action=>"index", :controller=>"ical", :format => "ical", :only_path => false)}
+  %div#d_clip_button{:style=>"display:inline-block"}
+    =image_tag asset_path("clippy_up.png"), :id=>"clip_button"
+    &nbsp;
+
+- content_for :javascript do
+  %script{:type => "text/javascript", :src => "http://tile.cloudmade.com/wml/latest/web-maps-lite.js"}
+  :javascript
+    $(function() {
+      $('#clip_button').load(function() {
+        var clip = new ZeroClipboard.Client();
+        clip.setText( $('#icallink').val() );
+        clip.glue( 'd_clip_button' );
+      });
+      $("#icallink").mouseup(function(){
+        this.select();
+        return false;
+      });
+    });
 
 :markdown
   # Google Calendar

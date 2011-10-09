@@ -2,10 +2,9 @@
 
 - content_for :aside do
   :markdown
-    **hcking.de Hackathon**
+    **Kalender**
 
-    Lust, ein Wochenende lang an einem coolen Rails Projekt zu arbeiten mit anderen Entwicklern? Dann ist der hcking.de Hackathon genau das richtige für dich: Das Projekt voran bringen und viele der offenen Features implementieren, Pizza essen und was man sonst noch so als Nerd machen kann… 
-    [Mehr Infos](/events/53-hcking-de-hackathon)
+    Abonniere den Kalender via #{link_to "iCal", "abonnieren"}.
 
     Hier fehlt ein Event? Dann schick uns eine [E-Mail](mailto:mail@hcking.de).
 
@@ -15,7 +14,7 @@
   #fb_like
     #fb-root
     <script src="http://connect.facebook.net/en_US/all.js#appId=213379535367603&amp;xfbml=1"></script>
-    <fb:like href="http://hcking.de" send="true" width="450" show_faces="false" font="" layout="button_count"></fb:like>
+    <fb:like href="http://hcking.de" send="true" width="300" show_faces="false" font="" layout="button_count"></fb:like>
 
 
 %p
@@ -30,9 +29,14 @@
     - current_date = entry[:time].to_date
     %h3
       = current_date.strftime("%d.%m.%Y")
-  %p
+  .entry
     = entry[:time].strftime("%H:%M") if !entry[:event].full_day
     = link_to entry[:event].name, event_path(entry[:event])
+    / Display tags for this event, if any:
+    - unless entry[:event].tag_list.empty?
+      %ul.tags
+        - entry[:event].tag_list.each do |tag|
+          %li= tag
 
 %p Den Kalender gibt es auch als #{link_to "iCal", "abonnieren"}.
 

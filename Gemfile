@@ -8,6 +8,9 @@ gem 'sqlite3'
 gem 'mysql2'
 gem 'memcache-client'
 
+# Tags
+gem 'acts-as-taggable-on', '~>2.1.0'
+
 # Asset template engines
 gem 'sass-rails', "~> 3.1.0"
 gem 'coffee-script'
@@ -32,6 +35,8 @@ gem 'execjs'
 gem 'therubyracer'
 
 gem 'rdiscount' # for yard formatting
+
+gem 'zero-clipboard-rails'
 
 group :development do
   # Deployment

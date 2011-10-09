@@ -17,6 +17,7 @@ body
   font-size: 14px
 
 header
+  position: relative
   height: $logo_height
   width: $content_width - 40px
   margin: 20px auto 0
@@ -24,7 +25,7 @@ header
   img
     float: left
     margin-right: 20px
-  a
+  a.logo
     display: block
     float: left
     clear: right
@@ -41,6 +42,16 @@ header.with_aside
 
 header.without_aside
   background: $header_background image-url("header_background_without_aside.png") no-repeat bottom
+
+header #user_login
+  color: white
+  position: absolute
+  bottom: 12px
+  right: 10px
+  a
+    color: #A5BDCE
+    &:visited
+      color: #A5BDCE
 
 section
   position: relative
@@ -78,7 +89,21 @@ aside
   margin-left: 20px
   width: 230px
 
-  //background: $content_background - #111
+// Event taglists
+ul.tags
+  list-style-type: none
+  display: block
+  font-size: 80%
+  margin-top: 10px
+  padding-left: 0px
+
+ul.tags li
+  display: inline
+  background: #ddd
+  border: 1px solid #aaa
+  padding: 2px 5px
+  border-radius: 3px 3px
+
 
 footer
   width: $content_width
@@ -143,7 +168,18 @@ footer
 #fb_like, #twitter_like
   height: 25px
 
+#fb-root div
+  overflow: hidden !important
+
 #map_canvas
   float: right
   margin-left: 10px
   border: 1px solid #afafaf
+
+.abbonieren
+  input#icallink
+    float: left
+    width: 200px
+    margin-right: 5px
+  img#clip_button
+    margin-top: 3px
